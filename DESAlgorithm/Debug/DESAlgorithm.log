@@ -1,0 +1,5 @@
+﻿  DESClass.cpp
+d:\workspace\visual studio\desalgorithm\desalgorithm\desclass.cpp(363): warning C4390: ';': empty controlled statement found; is this the intent?
+  DESAlgorithmDlg.cpp
+  Generating Code...
+  DESAlgorithm.vcxproj -> D:\workspace\visual studio\DESAlgorithm\Debug\DESAlgorithm.exe
