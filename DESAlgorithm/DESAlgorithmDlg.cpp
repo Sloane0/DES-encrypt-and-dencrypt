@@ -221,15 +221,11 @@ void CDESAlgorithmDlg::ExcJiamiAlgorithm()
 	}
 
 	DESClass des;
-
 	if (useDefKey) {
 		des.DES_Encrypt(jiamiFilePath, defKey, jiamiAfterFilePath);
 	}
 	else {
-		char data[8];
-		//	key.GetBuffer(0) 这个函数可以将CString转为char *
-		memcpy(data, key.GetBuffer(0), 8);
-		des.DES_Encrypt(jiamiFilePath, data, jiamiAfterFilePath);
+		des.DES_Encrypt(jiamiFilePath, (char *)key.GetBuffer(0), jiamiAfterFilePath);
 	}
 	AfxMessageBox(L"加密文件成功！");
 }
@@ -272,10 +268,7 @@ void CDESAlgorithmDlg::ExcJiemiAlgorithm()
 		des.DES_Decrypt(jiemiFilePath, defKey, jiemiAfterFilePath);
 	}
 	else {
-		char data[8];
-		//	key.GetBuffer(0) 这个函数可以将CString转为char *
-		memcpy(data, key.GetBuffer(0), 8);
-		des.DES_Decrypt(jiemiFilePath, data, jiemiAfterFilePath);
+		des.DES_Decrypt(jiemiFilePath, (char *)key.GetBuffer(0), jiemiAfterFilePath);
 	}
 	AfxMessageBox(L"解密文件成功！");
 }

@@ -135,8 +135,8 @@ void DESClass::DES_MakeSubKeys(ElemType key[64], ElemType subKeys[16][48])
 {
 	ElemType temp[56];
 
+	DES_PC1_Transform(key, temp);//PC1÷√ªª
 	for (int i = 0; i < 16; i++) {
-		memset(temp, 0, sizeof(temp));
 		DES_ROL(temp, Move_Times[i]);
 		DES_PC2_Transform(temp, subKeys[i]);
 	}
@@ -398,13 +398,6 @@ void DESClass::DES_Decrypt(CString cipherFile, char *keyStr, CString plainFile)
 	ElemType bKey[64];
 	ElemType subKeys[16][48];
 
-	/*if (fopen_s(&cipher, cipherFile, "rb") != 0) {
-		return -1;
-	}
-
-	if (fopen_s(&plain, plainFile, "wb") != 0) {
-		return -1;
-	}*/
 	ifstream cipher(cipherFile, ios::binary | ios::in);
 	ofstream plain(plainFile, ios::binary | ios::out);
 
